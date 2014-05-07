@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="jello">
+<head>
+  <title>Jello</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.js">></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/controllers.js"></script>
+</head>
+<body>
+  <h1>Jello</h1>
+
+  <div ng-controller='CardsController'>
+    <form id="card-form" ng-submit="addCard()">
+      <input id="new-card" ng-model="newCard">
+    </form>
+    <ul>
+      <li ng-repeat="card in cards">
+        {{ card.id }}
+        {{ card.title }}
+        <div ng-controller="ItemsController">
+          <ul>
+            <li ng-repeat="item in items">
+              {{ item.title }}
+              }
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</body>

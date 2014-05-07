@@ -18,10 +18,12 @@
         {{ card.id }}
         {{ card.title }}
         <div ng-controller="ItemsController">
+          <form id="item-form" ng-submit="addItem()">
+            <input id="new-item" ng-model="newItem">
+          </form>
           <ul>
             <li ng-repeat="item in items">
               {{ item.title }}
-              }
             </li>
           </ul>
         </div>

@@ -17,5 +17,20 @@ app.controller('CardsController', function($scope) {
   };
 }).
 controller('ItemsController', function($scope) {
+  $scope.items = [];
+  $scope.newItem = '';
 
+  $scope.addItem = function() {
+    if ($scope.newItem.length == 0) {
+      return
+    }
+    else {
+      $scope.itemId = $scope.items.length + 1;
+      $scope.items.push({
+        id: $scope.itemId,
+        title: $scope.newItem,
+      });
+    }
+    $scope.newItem = '';
+  };
 });

@@ -1,4 +1,7 @@
-app.controller('CardsController', function($scope) {
+app.controller('CategoriesController', function($scope) {
+  $scope.categories = ['To Do', 'Doing', 'Done'];
+}).
+controller('CardsController', function($scope) {
   $scope.cards = [];
   $scope.newCard = '';
 

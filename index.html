@@ -9,21 +9,28 @@
 <body>
   <h1>Jello</h1>
 
-  <div ng-controller='CardsController'>
-    <form id="card-form" ng-submit="addCard()">
-      <input id="new-card" ng-model="newCard">
-    </form>
+  <div ng-controller='CategoriesController'>
     <ul>
-      <li ng-repeat="card in cards">
-        {{ card.id }}
-        {{ card.title }}
-        <div ng-controller="ItemsController">
-          <form id="item-form" ng-submit="addItem()">
-            <input id="new-item" ng-model="newItem">
+      <li ng-repeat='category in categories'>
+        <h2>{{ category }}</h2>
+        <div ng-controller='CardsController'>
+          <form id="card-form" ng-submit="addCard()">
+            <input id="new-card" ng-model="newCard">
           </form>
           <ul>
-            <li ng-repeat="item in items">
-              {{ item.title }}
+            <li ng-repeat="card in cards">
+              {{ card.id }}
+              {{ card.title }}
+              <div ng-controller="ItemsController">
+                <form id="item-form" ng-submit="addItem()">
+                  <input id="new-item" ng-model="newItem">
+                </form>
+                <ul>
+                  <li ng-repeat="item in items">
+                    {{ item.title }}
+                  </li>
+                </ul>
+              </div>
             </li>
           </ul>
         </div>

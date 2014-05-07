@@ -4,6 +4,7 @@
   <title>Jello</title>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.js">></script>
   <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/directives.js"></script>
   <script type="text/javascript" src="js/controllers.js"></script>
 </head>
 <body>
@@ -11,25 +12,29 @@
 
   <div ng-controller='CategoriesController'>
     <ul>
-      <li ng-repeat='category in categories'>
+      <li class="category" id="category{{ category }}" ng-repeat='category in categories' droppable category="category" >
         <h2>{{ category }}</h2>
         <div ng-controller='CardsController'>
           <form id="card-form" ng-submit="addCard()">
             <input id="new-card" ng-model="newCard">
           </form>
           <ul>
-            <li ng-repeat="card in cards">
-              {{ card.id }}
-              {{ card.title }}
-              <div ng-controller="ItemsController">
-                <form id="item-form" ng-submit="addItem()">
-                  <input id="new-item" ng-model="newItem">
-                </form>
-                <ul>
-                  <li ng-repeat="item in items">
-                    {{ item.title }}
-                  </li>
-                </ul>
+            <li class="card" id="card{{ card }}" ng-repeat="card in cards" draggable drag="handleDrag($index)" card="card">
+              <div class="btn btn-primary">
+                {{ card.id }}
+                {{ card.title }}
+                <div ng-controller="ItemsController">
+                  <form id="item-form" ng-submit="addItem()">
+                    <input id="new-item" ng-model="newItem">
+                  </form>
+                  <ul>
+                    <li  ng-repeat="item in items">
+                      {{ item.title }}
+                      {{ item.completed }}
+                      <input class="toggle" type="checkbox" ng-model="item.completed" ng-change="itemCompleted(item)">
+                    </li>
+                  </ul>
+                </div>
               </div>
             </li>
           </ul>

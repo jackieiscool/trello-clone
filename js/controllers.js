@@ -18,6 +18,10 @@ controller('CardsController', function($scope) {
     }
     $scope.newCard = '';
   };
+
+  $scope.handleDrag = function($index) {
+    console.log(this.card);
+  };
 }).
 controller('ItemsController', function($scope) {
   $scope.items = [];
@@ -32,8 +36,13 @@ controller('ItemsController', function($scope) {
       $scope.items.push({
         id: $scope.itemId,
         title: $scope.newItem,
+        completed: "false"
       });
     }
     $scope.newItem = '';
+  };
+
+  $scope.itemCompleted = function() {
+    completed: "true";
   };
 });

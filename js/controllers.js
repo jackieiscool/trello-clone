@@ -2,8 +2,7 @@ app.controller('CategoriesController', function($scope) {
   $scope.categories = ['To Do', 'Doing', 'Done'];
 
   $scope.handleDrop = function() {
-    console.log(this);
-    // console.log($scope);
+    
   };
 }).
 controller('CardsController', function($scope) {
@@ -24,11 +23,8 @@ controller('CardsController', function($scope) {
     $scope.newCard = '';
   };
 
-  $scope.handleDrag = function($index) {
-    // $scope.cards.push(this.card);
-    // console.log(this.card.id);
-    // console.log($scope.cards);
-    $scope.cards.splice((this.card.id - 1), 1);
+  $scope.handleDrag = function(category, card) {
+    // $scope.cards.splice((this.card.id - 1), 1);
   };
 }).
 controller('ItemsController', function($scope) {

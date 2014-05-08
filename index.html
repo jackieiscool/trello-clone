@@ -20,7 +20,7 @@
             <input id="new-card" ng-model="newCard">
           </form>
           <ul>
-            <li class="card" id="card{{ card }}" ng-repeat="card in cards" draggable drag="handleDrag($index)" card="card">
+            <li class="card" id="card{{ card }}" ng-repeat="card in cards" draggable drag="handleDrag(category, card)" card="card">
               <div class="btn btn-primary">
                 {{ card.id }}
                 {{ card.title }}

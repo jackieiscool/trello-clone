@@ -73,6 +73,13 @@ directive('droppable', function() {
           var list = this.children[1].children[1];
           list.appendChild(card);
 
+          scope.$apply(function(scope) {
+            var fn = scope.drop();
+            if ('undefined' !== typeof fn) {
+              fn(item.id, binId);
+            }
+          });
+          
           return false;
         },
         false

@@ -1,5 +1,10 @@
 app.controller('CategoriesController', function($scope) {
   $scope.categories = ['To Do', 'Doing', 'Done'];
+
+  $scope.handleDrop = function() {
+    console.log(this);
+    // console.log($scope);
+  };
 }).
 controller('CardsController', function($scope) {
   $scope.cards = [];
@@ -20,7 +25,10 @@ controller('CardsController', function($scope) {
   };
 
   $scope.handleDrag = function($index) {
-    console.log(this.card);
+    // $scope.cards.push(this.card);
+    // console.log(this.card.id);
+    // console.log($scope.cards);
+    $scope.cards.splice((this.card.id - 1), 1);
   };
 }).
 controller('ItemsController', function($scope) {

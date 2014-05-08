@@ -1,0 +1,22 @@
+body {
+  background-color: #99CC66;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.category {
+  background-color: #666666; 
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.card {
+  background-color: #FFFFFF;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px; 
+}
